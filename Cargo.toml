@@ -1,0 +1,13 @@
+[workspace]
+resolver = "2"
+members = ["node", "runtime"]
+
+[workspace.package]
+edition = "2021"
+version = "0.1.0"
+authors = ["VOIDKIN"]
+
+# NOTE: pin every polkadot-sdk crate to ONE release branch and use the matching
+# Frontier branch. Both must target the same polkadot-sdk release.
+[workspace.dependencies]
+voidkin-runtime = { path = "runtime", default-features = false }
