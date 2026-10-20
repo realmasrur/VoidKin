@@ -1,0 +1,63 @@
+[package]
+name = "voidkin-runtime"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+parity-scale-codec = { version = "3", default-features = false, features = ["derive"] }
+scale-info = { version = "2", default-features = false, features = ["derive"] }
+serde_json = { version = "1", default-features = false, features = ["alloc"] }
+hex-literal = { version = "0.4", default-features = false }
+frame-support = { git = "https://github.com/paritytech/polkadot-sdk", branch = "stable2409", default-features = false }
+frame-system = { git = "https://github.com/paritytech/polkadot-sdk", branch = "stable2409", default-features = false }
+frame-executive = { git = "https://github.com/paritytech/polkadot-sdk", branch = "stable2409", default-features = false }
+pallet-aura = { git = "https://github.com/paritytech/polkadot-sdk", branch = "stable2409", default-features = false }
+pallet-grandpa = { git = "https://github.com/paritytech/polkadot-sdk", branch = "stable2409", default-features = false }
+pallet-balances = { git = "https://github.com/paritytech/polkadot-sdk", branch = "stable2409", default-features = false }
+pallet-timestamp = { git = "https://github.com/paritytech/polkadot-sdk", branch = "stable2409", default-features = false }
+pallet-transaction-payment = { git = "https://github.com/paritytech/polkadot-sdk", branch = "stable2409", default-features = false }
+pallet-sudo = { git = "https://github.com/paritytech/polkadot-sdk", branch = "stable2409", default-features = false }
+frame-system-rpc-runtime-api = { git = "https://github.com/paritytech/polkadot-sdk", branch = "stable2409", default-features = false }
+sp-api = { git = "https://github.com/paritytech/polkadot-sdk", branch = "stable2409", default-features = false }
+sp-consensus-aura = { git = "https://github.com/paritytech/polkadot-sdk", branch = "stable2409", default-features = false }
+sp-consensus-grandpa = { git = "https://github.com/paritytech/polkadot-sdk", branch = "stable2409", default-features = false }
+sp-core = { git = "https://github.com/paritytech/polkadot-sdk", branch = "stable2409", default-features = false }
+sp-runtime = { git = "https://github.com/paritytech/polkadot-sdk", branch = "stable2409", default-features = false }
+sp-std = { git = "https://github.com/paritytech/polkadot-sdk", branch = "stable2409", default-features = false }
+sp-version = { git = "https://github.com/paritytech/polkadot-sdk", branch = "stable2409", default-features = false }
+sp-genesis-builder = { git = "https://github.com/paritytech/polkadot-sdk", branch = "stable2409", default-features = false }
+sp-block-builder = { git = "https://github.com/paritytech/polkadot-sdk", branch = "stable2409", default-features = false }
+sp-inherents = { git = "https://github.com/paritytech/polkadot-sdk", branch = "stable2409", default-features = false }
+sp-offchain = { git = "https://github.com/paritytech/polkadot-sdk", branch = "stable2409", default-features = false }
+sp-session = { git = "https://github.com/paritytech/polkadot-sdk", branch = "stable2409", default-features = false }
+sp-transaction-pool = { git = "https://github.com/paritytech/polkadot-sdk", branch = "stable2409", default-features = false }
+# Frontier: branch must match the polkadot-sdk release
+fp-account = { git = "https://github.com/polkadot-evm/frontier", branch = "stable2409", default-features = false, features = ["serde"] }
+fp-evm = { git = "https://github.com/polkadot-evm/frontier", branch = "stable2409", default-features = false }
+fp-rpc = { git = "https://github.com/polkadot-evm/frontier", branch = "stable2409", default-features = false }
+fp-self-contained = { git = "https://github.com/polkadot-evm/frontier", branch = "stable2409", default-features = false }
+pallet-evm = { git = "https://github.com/polkadot-evm/frontier", branch = "stable2409", default-features = false }
+pallet-ethereum = { git = "https://github.com/polkadot-evm/frontier", branch = "stable2409", default-features = false }
+pallet-evm-chain-id = { git = "https://github.com/polkadot-evm/frontier", branch = "stable2409", default-features = false }
+pallet-base-fee = { git = "https://github.com/polkadot-evm/frontier", branch = "stable2409", default-features = false }
+pallet-dynamic-fee = { git = "https://github.com/polkadot-evm/frontier", branch = "stable2409", default-features = false }
+
+[build-dependencies]
+substrate-wasm-builder = { git = "https://github.com/paritytech/polkadot-sdk", branch = "stable2409", optional = true }
+
+[features]
+default = ["std"]
+std = [
+  "parity-scale-codec/std", "scale-info/std", "serde_json/std",
+  "frame-support/std", "frame-system/std", "frame-executive/std",
+  "pallet-aura/std", "pallet-grandpa/std", "pallet-balances/std", "pallet-timestamp/std",
+  "pallet-transaction-payment/std", "pallet-sudo/std",
+  "sp-api/std", "frame-system-rpc-runtime-api/std", "sp-consensus-aura/std", "sp-consensus-grandpa/std", "sp-core/std",
+  "sp-runtime/std", "sp-std/std", "sp-version/std", "sp-genesis-builder/std",
+  "sp-block-builder/std", "sp-inherents/std", "sp-offchain/std", "sp-session/std",
+  "sp-transaction-pool/std",
+  "fp-account/std", "fp-evm/std", "fp-rpc/std", "fp-self-contained/std",
+  "pallet-evm/std", "pallet-ethereum/std", "pallet-evm-chain-id/std",
+  "pallet-base-fee/std", "pallet-dynamic-fee/std",
+  "substrate-wasm-builder",
+]
